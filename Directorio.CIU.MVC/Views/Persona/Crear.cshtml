@@ -1,0 +1,99 @@
+﻿@model Directorio.ENT.Persona
+@{
+    ViewBag.Title = "Crear Persona";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.Nombre1)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Nombre1)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.Nombre2)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Nombre2)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.ApellidoPaterno)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.ApellidoPaterno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.ApellidoMaterno)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.ApellidoMaterno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.EstaActivo)
+            </td>
+            <td>
+                Sí @Html.RadioButtonFor(z=>z.EstaActivo, true)
+            </td>
+            <td>
+                No @Html.RadioButtonFor(z=>z.EstaActivo, false)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.FechaNacimiento)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.FechaNacimiento)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.FechaFallecimiento)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.FechaFallecimiento)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.FechaIngreso)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.FechaIngreso)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.FechaSalida)
+            </td>
+            <td>
+                @Html.EditorFor(c => c.FechaSalida)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(c => c.CargoAsignado)
+            </td>
+            <td>
+                @Html.DropDownListFor(z=>z.CargoAsignadoId,  ViewBag.ListaCargo as List<SelectListItem> )
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Grabar" />
+}

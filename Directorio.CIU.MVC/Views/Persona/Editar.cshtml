@@ -1,0 +1,84 @@
+﻿@model Directorio.ENT.Persona
+@{
+    ViewBag.Title = "Editar Persona";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    @Html.HiddenFor(z=>z.Id)
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.Nombre1)
+            </td>
+            <td>
+                @Html.EditorFor(z=>z.Nombre1)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z => z.Nombre2)
+            </td>
+            <td>
+                @Html.EditorFor(z => z.Nombre2)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z => z.ApellidoPaterno)
+            </td>
+            <td>
+                @Html.EditorFor(z => z.ApellidoPaterno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.ApellidoMaterno)
+            </td>
+            <td>
+                @Html.EditorFor(z=>z.ApellidoMaterno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.EstaActivo)
+            </td>
+            <td>
+                Sí @Html.RadioButtonFor(z=>z.EstaActivo,true)
+            </td>
+            <td>
+                No @Html.RadioButtonFor(z=>z.EstaActivo,false)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.FechaNacimiento)
+            </td>
+            <td>
+                @Html.EditorFor(z=>z.FechaNacimiento)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.FechaIngreso)
+            </td>
+            <td>
+                @Html.EditorFor(z=>z.FechaIngreso)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(z=>z.CargoAsignadoId)
+            </td>
+            <td>
+                @Html.DropDownListFor(z=>z.CargoAsignadoId, ViewBag.ListaCargo as IEnumerable<SelectListItem>)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Grabar" />
+}
+
